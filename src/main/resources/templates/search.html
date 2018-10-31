@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Staff Development</title>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+        <style>
+        </style>
+        <!--开发使用的是完整版js文件，生产环境替换为 *.min.js-->
+        <script src="/asset/js/vue-2.4.16.js"></script>
+        <!-- element-ui 许多组件，所以用在线 cdn 引入 -->
+        <link rel="stylesheet" href="https://unpkg.com/element-ui@2.4.1/lib/theme-chalk/index.css"/>
+		<script src="https://unpkg.com/element-ui@2.4.1/lib/index.js"></script>
+        <script src="/asset/js/axios-0.18.0.js"></script>
+        <!-- 下面是自定义组件 -->
+        <script src="/components/search.js"></script>
+    </head>
+    <body>
+        <div id="search">
+            <div>
+                <el-input style="width:200px;" v-model="content" size="small" placeholder="请输入搜索内容"></el-input>
+                <el-button v-on:click="search" size="small" :loading="loading">Search</el-button>
+            </div>
+            <search-history :history="history"></search-history>
+        </div>
+        <script>
+            var app = new Vue({
+                el:"#search",
+                data:{
+                    history:[],
+                    content:'',
+                    loading:false,
+                },
+                methods:{
+                    search:function(){
+                        if(this.content){
+                            this.loading = true;
+                            axios.post('/test/search',{
+                                keyWord:this.content
+                            }).then(res => {
+                                this.loading = false;
+                                this.history.push(res.data);
+                            }).catch(err =>{
+                                this.loading = false;
+                                console.log(err);
+                            });
+                        }
+                    }
+                }
+            })
+        </script>
+    </body>
+
+</html>
