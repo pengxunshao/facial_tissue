@@ -11,7 +11,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 /**
- * 泰迪请求url
+ * 请求url
  */
 public class RequestUtil {
 
