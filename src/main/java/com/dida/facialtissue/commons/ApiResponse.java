@@ -3,9 +3,6 @@ package com.dida.facialtissue.commons;
 import java.io.Serializable;
 
 public class ApiResponse implements Serializable{
-	
-	private static final long serialVersionUID = 6323676294697633665L;
-	
 	private int code = 0;
 	private String msg = "ok";
 	private Object data;

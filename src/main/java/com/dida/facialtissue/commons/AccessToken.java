@@ -26,4 +26,12 @@ public class AccessToken {
 	public void setExpiresIn(int expiresIn) {
 		this.expiresIn = expiresIn;
 	}
+
+    @Override
+    public String toString() {
+        return "AccessToken{" +
+                "token='" + token + '\'' +
+                ", expiresIn=" + expiresIn +
+                '}';
+    }
 }

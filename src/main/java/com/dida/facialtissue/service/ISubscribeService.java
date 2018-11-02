@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * @description:
+ * @description: 关注,订阅
  * @author: shaopengxun
  * @createTime:2018/11/1 11:51
  **/

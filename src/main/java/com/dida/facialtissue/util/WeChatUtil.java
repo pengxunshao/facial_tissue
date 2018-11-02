@@ -304,5 +304,5 @@ public class WeChatUtil {
         map.put("ArticleCount", Articles.size());
         return mapToXML(map);
     }
-    
+
 }

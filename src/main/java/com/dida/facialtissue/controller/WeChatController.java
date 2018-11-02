@@ -113,11 +113,4 @@ public class WeChatController {
         }
         */
     }
-
-    @GetMapping(value = "/outpaper")
-    public void outPaper(@RequestParam(value = "deviceId") String deviceId,HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        String onenet_url="http://api.heclouds.com/cmds";
-
-    }
-
 }

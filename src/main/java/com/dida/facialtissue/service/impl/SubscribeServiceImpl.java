@@ -6,11 +6,13 @@ package com.dida.facialtissue.service.impl;/**
 
 import com.alibaba.fastjson.JSONObject;
 import com.dida.facialtissue.commons.AccessToken;
+import com.dida.facialtissue.commons.RedisTemplateHelper;
 import com.dida.facialtissue.entity.WeChatContant;
 import com.dida.facialtissue.enums.RequestMethodEnum;
 import com.dida.facialtissue.service.ISubscribeService;
 import com.dida.facialtissue.util.MessageUtil;
 import com.dida.facialtissue.util.WeChatUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,7 +26,10 @@ import java.util.Map;
  **/
 @Service
 public class SubscribeServiceImpl implements ISubscribeService {
+    @Autowired
+    RedisTemplateHelper redisTemplateHelper;
 
+    //关注,订阅
     @Override
     public String Subscribe(HttpServletRequest request, HttpServletResponse response) {
         // xml请求解析
@@ -36,8 +41,12 @@ public class SubscribeServiceImpl implements ISubscribeService {
             // 发送方帐号（open_id）
             String fromUserName = requestMap.get("FromUserName");
             System.out.println(fromUserName);
-            AccessToken accessToken = WeChatUtil.getAccessToken();
-            String token = accessToken.getToken();
+            String token = redisTemplateHelper.getValue("accessToken");
+            if (null == token) {
+                AccessToken accessToken = WeChatUtil.getAccessToken();
+                token = accessToken.getToken();
+                redisTemplateHelper.setValue("accessToken", accessToken.getToken(), accessToken.getExpiresIn());
+            }
             //消息类型是事件Event
             if (MessageUtil.REQ_MESSAGE_TYPE_EVENT.equals(msgType)) {
                 // 接收用户发送的事件请求内容

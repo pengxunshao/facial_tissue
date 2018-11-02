@@ -38,7 +38,7 @@
       <property name="enableSubPackages" value="true"/>
    </javaClientGenerator>
 
-    <table schema="DB2ADMIN" tableName="accounts_principal"> 
+    <table schema="DB2ADMIN" tableName="device">
       <generatedKey column="ID" sqlStatement="Mysql" identity="true"/>
     </table>
     
