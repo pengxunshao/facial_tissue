@@ -1,4 +1,4 @@
-package com.dida.facialtissue.message.resp;
+package com.dida.facialtissue.WeChatMessage.resp;
 
 /**
  * 音乐消息

@@ -1,9 +1,9 @@
 package com.dida.facialtissue.util;
 
-import com.dida.facialtissue.message.resp.Article;
-import com.dida.facialtissue.message.resp.MusicMessage;
-import com.dida.facialtissue.message.resp.NewsMessage;
-import com.dida.facialtissue.message.resp.TextMessage;
+import com.dida.facialtissue.WeChatMessage.resp.Article;
+import com.dida.facialtissue.WeChatMessage.resp.MusicMessage;
+import com.dida.facialtissue.WeChatMessage.resp.NewsMessage;
+import com.dida.facialtissue.WeChatMessage.resp.TextMessage;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.core.util.QuickWriter;
 import com.thoughtworks.xstream.io.HierarchicalStreamWriter;

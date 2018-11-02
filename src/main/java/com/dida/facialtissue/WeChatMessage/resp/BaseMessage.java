@@ -1,4 +1,4 @@
-package com.dida.facialtissue.message.resp;
+package com.dida.facialtissue.WeChatMessage.resp;
 
 /**
  * 消息基类（公众帐号 -> 普通用户）

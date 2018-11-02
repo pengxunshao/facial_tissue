@@ -1,7 +1,7 @@
 package com.dida.facialtissue.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.dida.facialtissue.entity.WeChatContant;
+import com.dida.facialtissue.WeChatEntity.WeChatContant;
 import com.dida.facialtissue.enums.RequestMethodEnum;
 import com.dida.facialtissue.service.ISubscribeService;
 import com.dida.facialtissue.util.WeChatUtil;

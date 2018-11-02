@@ -1,4 +1,4 @@
-package com.dida.facialtissue.entity;
+package com.dida.facialtissue.WeChatEntity;
 
 public class WeChatContant {
      //APPID

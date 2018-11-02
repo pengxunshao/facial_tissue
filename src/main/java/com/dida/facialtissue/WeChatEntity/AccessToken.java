@@ -1,4 +1,4 @@
-package com.dida.facialtissue.commons;
+package com.dida.facialtissue.WeChatEntity;
 
 /**
  * 微信通用接口凭证

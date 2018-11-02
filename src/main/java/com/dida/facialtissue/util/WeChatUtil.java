@@ -2,9 +2,9 @@ package com.dida.facialtissue.util;
 
 import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.JSONObject;
-import com.dida.facialtissue.commons.AccessToken;
-import com.dida.facialtissue.entity.ArticleItem;
-import com.dida.facialtissue.entity.WeChatContant;
+import com.dida.facialtissue.WeChatEntity.AccessToken;
+import com.dida.facialtissue.WeChatEntity.ArticleItem;
+import com.dida.facialtissue.WeChatEntity.WeChatContant;
 import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;

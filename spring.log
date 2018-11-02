@@ -19240,3 +19240,229 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in 
 2018-11-02 14:52:23.665 DEBUG 3912 --- [http-nio-9005-exec-1] c.d.f.d.m.DeviceMapper.selectByExample   : ==>  Preparing: select id, sn, mac, title, device_id, apikey from device WHERE ( device_id = ? ) 
 2018-11-02 14:52:23.693 DEBUG 3912 --- [http-nio-9005-exec-1] c.d.f.d.m.DeviceMapper.selectByExample   : ==> Parameters: 500179261(String)
 2018-11-02 14:52:23.708 DEBUG 3912 --- [http-nio-9005-exec-1] c.d.f.d.m.DeviceMapper.selectByExample   : <==      Total: 1
+2018-11-02 15:06:59.415  INFO 1264 --- [main] com.dida.facialtissue.Application        : Starting Application on UUTU0A7JZ3HUMF6 with PID 1264 (F:\CompanyProject\facial_tissue\target\classes started by shaopengxun in F:\CompanyProject\facial_tissue)
+2018-11-02 15:06:59.423  INFO 1264 --- [main] com.dida.facialtissue.Application        : No active profile set, falling back to default profiles: default
+2018-11-02 15:06:59.751  INFO 1264 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1fd2ccd: startup date [Fri Nov 02 15:06:59 CST 2018]; root of context hierarchy
+2018-11-02 15:07:01.106  INFO 1264 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-11-02 15:07:01.646  INFO 1264 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'myWebMvcConfigurerAdapter' of type [com.dida.facialtissue.config.MyWebMvcConfigurerAdapter$$EnhancerBySpringCGLIB$$1912c386] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-11-02 15:07:01.922  INFO 1264 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$9e840d3e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-11-02 15:07:02.655  INFO 1264 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 9005 (http)
+2018-11-02 15:07:02.668  INFO 1264 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-11-02 15:07:02.669  INFO 1264 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.16
+2018-11-02 15:07:02.857  INFO 1264 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-11-02 15:07:02.857  INFO 1264 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3109 ms
+2018-11-02 15:07:03.026  INFO 1264 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2018-11-02 15:07:03.032  INFO 1264 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-11-02 15:07:04.407  INFO 1264 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/test/search],methods=[POST]}" onto public java.lang.String com.dida.facialtissue.controller.TestController.search(java.util.Map<java.lang.String, java.lang.Object>)
+2018-11-02 15:07:04.408  INFO 1264 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/],methods=[GET]}" onto public java.lang.String com.dida.facialtissue.controller.TestController.getHome()
+2018-11-02 15:07:04.408  INFO 1264 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/test/hello],methods=[GET]}" onto public java.lang.String com.dida.facialtissue.controller.TestController.hello()
+2018-11-02 15:07:04.410  INFO 1264 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/wechat],methods=[POST]}" onto public void com.dida.facialtissue.controller.WeChatController.validate(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2018-11-02 15:07:04.410  INFO 1264 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/wechat],methods=[GET]}" onto public java.lang.String com.dida.facialtissue.controller.WeChatController.validate(java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+2018-11-02 15:07:04.411  INFO 1264 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/callBack],methods=[GET]}" onto public void com.dida.facialtissue.controller.WeChatController.callBack(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException
+2018-11-02 15:07:04.411  INFO 1264 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/wxLogin],methods=[GET]}" onto public void com.dida.facialtissue.controller.WeChatController.wxLogin(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException
+2018-11-02 15:07:04.413  INFO 1264 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/device/outpaper],methods=[POST]}" onto public com.dida.facialtissue.commons.ApiResponse com.dida.facialtissue.device.controller.DeviceController.outpaper(java.lang.String)
+2018-11-02 15:07:04.413  INFO 1264 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/device/register],methods=[POST]}" onto public com.dida.facialtissue.commons.ApiResponse com.dida.facialtissue.device.controller.DeviceController.registerDevice(com.dida.facialtissue.device.DTO.DeviceDto,java.lang.String)
+2018-11-02 15:07:04.414  INFO 1264 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/v2/api-docs],methods=[GET]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String)
+2018-11-02 15:07:04.418  INFO 1264 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/configuration/security]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2018-11-02 15:07:04.419  INFO 1264 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/configuration/ui]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2018-11-02 15:07:04.419  INFO 1264 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources]}" onto org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2018-11-02 15:07:04.423  INFO 1264 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-11-02 15:07:04.423  INFO 1264 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-11-02 15:07:04.672  INFO 1264 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/swagger-ui.html] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-02 15:07:04.672  INFO 1264 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-02 15:07:04.673  INFO 1264 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-02 15:07:05.007  INFO 1264 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1fd2ccd: startup date [Fri Nov 02 15:06:59 CST 2018]; root of context hierarchy
+2018-11-02 15:07:06.147  WARN 1264 --- [main] .t.AbstractTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2018-11-02 15:07:06.625  INFO 1264 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-11-02 15:07:06.656  INFO 1264 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-11-02 15:07:06.677  INFO 1264 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found {0} custom documentation plugin(s)
+2018-11-02 15:07:06.687  INFO 1264 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-11-02 15:07:06.692  INFO 1264 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method getHome was test-controller
+2018-11-02 15:07:06.695  INFO 1264 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Request mapping: getHome belongs to groups: [[ResourceGroup{groupName='test-controller', position=0, controller=com.dida.facialtissue.controller.TestController}]] 
+2018-11-02 15:07:06.696  INFO 1264 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method callBack was we-chat-controller
+2018-11-02 15:07:06.696  INFO 1264 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Request mapping: callBack belongs to groups: [[ResourceGroup{groupName='we-chat-controller', position=0, controller=com.dida.facialtissue.controller.WeChatController}]] 
+2018-11-02 15:07:06.697  INFO 1264 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method hello was test-controller
+2018-11-02 15:07:06.697  INFO 1264 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Request mapping: hello belongs to groups: [[ResourceGroup{groupName='test-controller', position=0, controller=com.dida.facialtissue.controller.TestController}]] 
+2018-11-02 15:07:06.698  INFO 1264 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method search was test-controller
+2018-11-02 15:07:06.698  INFO 1264 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Request mapping: search belongs to groups: [[ResourceGroup{groupName='test-controller', position=0, controller=com.dida.facialtissue.controller.TestController}]] 
+2018-11-02 15:07:06.698  INFO 1264 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method validate was we-chat-controller
+2018-11-02 15:07:06.699  INFO 1264 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Request mapping: validate belongs to groups: [[ResourceGroup{groupName='we-chat-controller', position=0, controller=com.dida.facialtissue.controller.WeChatController}]] 
+2018-11-02 15:07:06.699  INFO 1264 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method validate was we-chat-controller
+2018-11-02 15:07:06.699  INFO 1264 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Request mapping: validate belongs to groups: [[ResourceGroup{groupName='we-chat-controller', position=0, controller=com.dida.facialtissue.controller.WeChatController}]] 
+2018-11-02 15:07:06.700  INFO 1264 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method wxLogin was we-chat-controller
+2018-11-02 15:07:06.700  INFO 1264 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Request mapping: wxLogin belongs to groups: [[ResourceGroup{groupName='we-chat-controller', position=0, controller=com.dida.facialtissue.controller.WeChatController}]] 
+2018-11-02 15:07:06.705  INFO 1264 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Created resource listing Path: /default/we-chat-controller Description: we-chat-controller Position: 0
+2018-11-02 15:07:06.706  INFO 1264 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Created resource listing Path: /default/test-controller Description: test-controller Position: 0
+2018-11-02 15:07:06.729  INFO 1264 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: java.lang.String(true)
+2018-11-02 15:07:06.729  INFO 1264 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache models with key java.lang.String(true)
+2018-11-02 15:07:06.738  INFO 1264 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: java.lang.String(true)
+2018-11-02 15:07:06.738  INFO 1264 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelDependencies with key java.lang.String(true)
+2018-11-02 15:07:06.745  INFO 1264 --- [main] s.d.spring.web.OperationsKeyGenerator    : Cache key generated: /.com.dida.facialtissue.controller.TestController.getHome.DefaultGenericTypeNamingStrategy
+2018-11-02 15:07:06.745  INFO 1264 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache operations with key /.com.dida.facialtissue.controller.TestController.getHome.DefaultGenericTypeNamingStrategy
+2018-11-02 15:07:06.757  INFO 1264 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method getHome was test-controller
+2018-11-02 15:07:06.761  INFO 1264 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method getHome was test-controller
+2018-11-02 15:07:06.768  INFO 1264 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: java.lang.String(true)
+2018-11-02 15:07:06.768  INFO 1264 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache models with key java.lang.String(true)
+2018-11-02 15:07:06.769  INFO 1264 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: java.lang.String(true)
+2018-11-02 15:07:06.769  INFO 1264 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelDependencies with key java.lang.String(true)
+2018-11-02 15:07:06.769  INFO 1264 --- [main] s.d.spring.web.OperationsKeyGenerator    : Cache key generated: /test/hello.com.dida.facialtissue.controller.TestController.hello.DefaultGenericTypeNamingStrategy
+2018-11-02 15:07:06.769  INFO 1264 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache operations with key /test/hello.com.dida.facialtissue.controller.TestController.hello.DefaultGenericTypeNamingStrategy
+2018-11-02 15:07:06.770  INFO 1264 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method hello was test-controller
+2018-11-02 15:07:06.772  INFO 1264 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method hello was test-controller
+2018-11-02 15:07:06.773  INFO 1264 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: java.lang.String(true)
+2018-11-02 15:07:06.774  INFO 1264 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache models with key java.lang.String(true)
+2018-11-02 15:07:06.774  INFO 1264 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: java.lang.String(true)
+2018-11-02 15:07:06.774  INFO 1264 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelDependencies with key java.lang.String(true)
+2018-11-02 15:07:06.774  INFO 1264 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: java.lang.Object(false)
+2018-11-02 15:07:06.774  INFO 1264 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache models with key java.lang.Object(false)
+2018-11-02 15:07:06.775  INFO 1264 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: java.lang.Object(false)
+2018-11-02 15:07:06.775  INFO 1264 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelDependencies with key java.lang.Object(false)
+2018-11-02 15:07:06.775  INFO 1264 --- [main] s.d.spring.web.OperationsKeyGenerator    : Cache key generated: /test/search.com.dida.facialtissue.controller.TestController.search.DefaultGenericTypeNamingStrategy
+2018-11-02 15:07:06.775  INFO 1264 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache operations with key /test/search.com.dida.facialtissue.controller.TestController.search.DefaultGenericTypeNamingStrategy
+2018-11-02 15:07:06.782  INFO 1264 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method search was test-controller
+2018-11-02 15:07:06.784  INFO 1264 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method search was test-controller
+2018-11-02 15:07:06.802  INFO 1264 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: java.lang.Void(true)
+2018-11-02 15:07:06.802  INFO 1264 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache models with key java.lang.Void(true)
+2018-11-02 15:07:06.803  INFO 1264 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: java.lang.Void(true)
+2018-11-02 15:07:06.803  INFO 1264 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelDependencies with key java.lang.Void(true)
+2018-11-02 15:07:06.804  INFO 1264 --- [main] s.d.spring.web.OperationsKeyGenerator    : Cache key generated: /callBack.com.dida.facialtissue.controller.WeChatController.callBack.DefaultGenericTypeNamingStrategy
+2018-11-02 15:07:06.805  INFO 1264 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache operations with key /callBack.com.dida.facialtissue.controller.WeChatController.callBack.DefaultGenericTypeNamingStrategy
+2018-11-02 15:07:06.808  INFO 1264 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method callBack was we-chat-controller
+2018-11-02 15:07:06.809  INFO 1264 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method callBack was we-chat-controller
+2018-11-02 15:07:06.812  INFO 1264 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: java.lang.Void(true)
+2018-11-02 15:07:06.812  INFO 1264 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache models with key java.lang.Void(true)
+2018-11-02 15:07:06.812  INFO 1264 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: java.lang.Void(true)
+2018-11-02 15:07:06.813  INFO 1264 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelDependencies with key java.lang.Void(true)
+2018-11-02 15:07:06.813  INFO 1264 --- [main] s.d.spring.web.OperationsKeyGenerator    : Cache key generated: /wechat.com.dida.facialtissue.controller.WeChatController.validate.DefaultGenericTypeNamingStrategy
+2018-11-02 15:07:06.813  INFO 1264 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache operations with key /wechat.com.dida.facialtissue.controller.WeChatController.validate.DefaultGenericTypeNamingStrategy
+2018-11-02 15:07:06.814  INFO 1264 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method validate was we-chat-controller
+2018-11-02 15:07:06.816  INFO 1264 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method validate was we-chat-controller
+2018-11-02 15:07:06.818  INFO 1264 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: java.lang.String(true)
+2018-11-02 15:07:06.818  INFO 1264 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache models with key java.lang.String(true)
+2018-11-02 15:07:06.819  INFO 1264 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: java.lang.String(true)
+2018-11-02 15:07:06.819  INFO 1264 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelDependencies with key java.lang.String(true)
+2018-11-02 15:07:06.819  INFO 1264 --- [main] s.d.spring.web.OperationsKeyGenerator    : Cache key generated: /wechat.com.dida.facialtissue.controller.WeChatController.validate.DefaultGenericTypeNamingStrategy
+2018-11-02 15:07:06.819  INFO 1264 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache operations with key /wechat.com.dida.facialtissue.controller.WeChatController.validate.DefaultGenericTypeNamingStrategy
+2018-11-02 15:07:06.820  INFO 1264 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: java.lang.Void(true)
+2018-11-02 15:07:06.821  INFO 1264 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache models with key java.lang.Void(true)
+2018-11-02 15:07:06.821  INFO 1264 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: java.lang.Void(true)
+2018-11-02 15:07:06.822  INFO 1264 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelDependencies with key java.lang.Void(true)
+2018-11-02 15:07:06.822  INFO 1264 --- [main] s.d.spring.web.OperationsKeyGenerator    : Cache key generated: /wxLogin.com.dida.facialtissue.controller.WeChatController.wxLogin.DefaultGenericTypeNamingStrategy
+2018-11-02 15:07:06.822  INFO 1264 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache operations with key /wxLogin.com.dida.facialtissue.controller.WeChatController.wxLogin.DefaultGenericTypeNamingStrategy
+2018-11-02 15:07:06.823  INFO 1264 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method wxLogin was we-chat-controller
+2018-11-02 15:07:06.824  INFO 1264 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method wxLogin was we-chat-controller
+2018-11-02 15:07:06.914  INFO 1264 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 9005 (http)
+2018-11-02 15:07:06.921  INFO 1264 --- [main] com.dida.facialtissue.Application        : Started Application in 7.923 seconds (JVM running for 8.512)
+2018-11-02 15:37:56.909  INFO 10532 --- [main] com.dida.facialtissue.Application        : Starting Application on UUTU0A7JZ3HUMF6 with PID 10532 (F:\CompanyProject\facial_tissue\target\classes started by shaopengxun in F:\CompanyProject\facial_tissue)
+2018-11-02 15:37:56.916  INFO 10532 --- [main] com.dida.facialtissue.Application        : No active profile set, falling back to default profiles: default
+2018-11-02 15:37:57.251  INFO 10532 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1fd2ccd: startup date [Fri Nov 02 15:37:57 CST 2018]; root of context hierarchy
+2018-11-02 15:37:58.617  INFO 10532 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-11-02 15:37:59.160  INFO 10532 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'myWebMvcConfigurerAdapter' of type [com.dida.facialtissue.config.MyWebMvcConfigurerAdapter$$EnhancerBySpringCGLIB$$1e402ccd] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-11-02 15:37:59.438  INFO 10532 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a3b17685] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-11-02 15:38:00.182  INFO 10532 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 9005 (http)
+2018-11-02 15:38:00.195  INFO 10532 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-11-02 15:38:00.196  INFO 10532 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.16
+2018-11-02 15:38:00.393  INFO 10532 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-11-02 15:38:00.394  INFO 10532 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3147 ms
+2018-11-02 15:38:00.567  INFO 10532 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2018-11-02 15:38:00.574  INFO 10532 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-11-02 15:38:02.049  INFO 10532 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/test/search],methods=[POST]}" onto public java.lang.String com.dida.facialtissue.controller.TestController.search(java.util.Map<java.lang.String, java.lang.Object>)
+2018-11-02 15:38:02.050  INFO 10532 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/],methods=[GET]}" onto public java.lang.String com.dida.facialtissue.controller.TestController.getHome()
+2018-11-02 15:38:02.050  INFO 10532 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/test/hello],methods=[GET]}" onto public java.lang.String com.dida.facialtissue.controller.TestController.hello()
+2018-11-02 15:38:02.052  INFO 10532 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/wechat],methods=[POST]}" onto public void com.dida.facialtissue.controller.WeChatController.validate(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2018-11-02 15:38:02.053  INFO 10532 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/wechat],methods=[GET]}" onto public java.lang.String com.dida.facialtissue.controller.WeChatController.validate(java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+2018-11-02 15:38:02.053  INFO 10532 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/callBack],methods=[GET]}" onto public void com.dida.facialtissue.controller.WeChatController.callBack(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException
+2018-11-02 15:38:02.054  INFO 10532 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/wxLogin],methods=[GET]}" onto public void com.dida.facialtissue.controller.WeChatController.wxLogin(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException
+2018-11-02 15:38:02.055  INFO 10532 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/device/register],methods=[POST]}" onto public com.dida.facialtissue.commons.ApiResponse com.dida.facialtissue.device.controller.DeviceController.registerDevice(com.dida.facialtissue.device.DTO.DeviceDto,java.lang.String)
+2018-11-02 15:38:02.056  INFO 10532 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/device/outpaper],methods=[POST]}" onto public com.dida.facialtissue.commons.ApiResponse com.dida.facialtissue.device.controller.DeviceController.outpaper(java.lang.String)
+2018-11-02 15:38:02.057  INFO 10532 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/v2/api-docs],methods=[GET]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String)
+2018-11-02 15:38:02.061  INFO 10532 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/configuration/security]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2018-11-02 15:38:02.062  INFO 10532 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources]}" onto org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2018-11-02 15:38:02.063  INFO 10532 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/configuration/ui]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2018-11-02 15:38:02.066  INFO 10532 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-11-02 15:38:02.067  INFO 10532 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-11-02 15:38:02.332  INFO 10532 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/swagger-ui.html] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-02 15:38:02.332  INFO 10532 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-02 15:38:02.332  INFO 10532 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-02 15:38:02.660  INFO 10532 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1fd2ccd: startup date [Fri Nov 02 15:37:57 CST 2018]; root of context hierarchy
+2018-11-02 15:38:03.783  WARN 10532 --- [main] .t.AbstractTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2018-11-02 15:38:04.264  INFO 10532 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-11-02 15:38:04.284  INFO 10532 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-11-02 15:38:04.321  INFO 10532 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found {0} custom documentation plugin(s)
+2018-11-02 15:38:04.332  INFO 10532 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-11-02 15:38:04.337  INFO 10532 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method getHome was test-controller
+2018-11-02 15:38:04.339  INFO 10532 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Request mapping: getHome belongs to groups: [[ResourceGroup{groupName='test-controller', position=0, controller=com.dida.facialtissue.controller.TestController}]] 
+2018-11-02 15:38:04.340  INFO 10532 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method callBack was we-chat-controller
+2018-11-02 15:38:04.341  INFO 10532 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Request mapping: callBack belongs to groups: [[ResourceGroup{groupName='we-chat-controller', position=0, controller=com.dida.facialtissue.controller.WeChatController}]] 
+2018-11-02 15:38:04.342  INFO 10532 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method hello was test-controller
+2018-11-02 15:38:04.342  INFO 10532 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Request mapping: hello belongs to groups: [[ResourceGroup{groupName='test-controller', position=0, controller=com.dida.facialtissue.controller.TestController}]] 
+2018-11-02 15:38:04.342  INFO 10532 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method search was test-controller
+2018-11-02 15:38:04.342  INFO 10532 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Request mapping: search belongs to groups: [[ResourceGroup{groupName='test-controller', position=0, controller=com.dida.facialtissue.controller.TestController}]] 
+2018-11-02 15:38:04.343  INFO 10532 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method validate was we-chat-controller
+2018-11-02 15:38:04.343  INFO 10532 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Request mapping: validate belongs to groups: [[ResourceGroup{groupName='we-chat-controller', position=0, controller=com.dida.facialtissue.controller.WeChatController}]] 
+2018-11-02 15:38:04.344  INFO 10532 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method validate was we-chat-controller
+2018-11-02 15:38:04.344  INFO 10532 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Request mapping: validate belongs to groups: [[ResourceGroup{groupName='we-chat-controller', position=0, controller=com.dida.facialtissue.controller.WeChatController}]] 
+2018-11-02 15:38:04.344  INFO 10532 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method wxLogin was we-chat-controller
+2018-11-02 15:38:04.345  INFO 10532 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Request mapping: wxLogin belongs to groups: [[ResourceGroup{groupName='we-chat-controller', position=0, controller=com.dida.facialtissue.controller.WeChatController}]] 
+2018-11-02 15:38:04.349  INFO 10532 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Created resource listing Path: /default/test-controller Description: test-controller Position: 0
+2018-11-02 15:38:04.351  INFO 10532 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Created resource listing Path: /default/we-chat-controller Description: we-chat-controller Position: 0
+2018-11-02 15:38:04.374  INFO 10532 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: java.lang.String(true)
+2018-11-02 15:38:04.374  INFO 10532 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache models with key java.lang.String(true)
+2018-11-02 15:38:04.383  INFO 10532 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: java.lang.String(true)
+2018-11-02 15:38:04.383  INFO 10532 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelDependencies with key java.lang.String(true)
+2018-11-02 15:38:04.389  INFO 10532 --- [main] s.d.spring.web.OperationsKeyGenerator    : Cache key generated: /.com.dida.facialtissue.controller.TestController.getHome.DefaultGenericTypeNamingStrategy
+2018-11-02 15:38:04.390  INFO 10532 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache operations with key /.com.dida.facialtissue.controller.TestController.getHome.DefaultGenericTypeNamingStrategy
+2018-11-02 15:38:04.403  INFO 10532 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method getHome was test-controller
+2018-11-02 15:38:04.406  INFO 10532 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method getHome was test-controller
+2018-11-02 15:38:04.413  INFO 10532 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: java.lang.String(true)
+2018-11-02 15:38:04.413  INFO 10532 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache models with key java.lang.String(true)
+2018-11-02 15:38:04.414  INFO 10532 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: java.lang.String(true)
+2018-11-02 15:38:04.414  INFO 10532 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelDependencies with key java.lang.String(true)
+2018-11-02 15:38:04.414  INFO 10532 --- [main] s.d.spring.web.OperationsKeyGenerator    : Cache key generated: /test/hello.com.dida.facialtissue.controller.TestController.hello.DefaultGenericTypeNamingStrategy
+2018-11-02 15:38:04.414  INFO 10532 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache operations with key /test/hello.com.dida.facialtissue.controller.TestController.hello.DefaultGenericTypeNamingStrategy
+2018-11-02 15:38:04.415  INFO 10532 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method hello was test-controller
+2018-11-02 15:38:04.417  INFO 10532 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method hello was test-controller
+2018-11-02 15:38:04.418  INFO 10532 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: java.lang.String(true)
+2018-11-02 15:38:04.419  INFO 10532 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache models with key java.lang.String(true)
+2018-11-02 15:38:04.419  INFO 10532 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: java.lang.String(true)
+2018-11-02 15:38:04.419  INFO 10532 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelDependencies with key java.lang.String(true)
+2018-11-02 15:38:04.419  INFO 10532 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: java.lang.Object(false)
+2018-11-02 15:38:04.420  INFO 10532 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache models with key java.lang.Object(false)
+2018-11-02 15:38:04.420  INFO 10532 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: java.lang.Object(false)
+2018-11-02 15:38:04.420  INFO 10532 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelDependencies with key java.lang.Object(false)
+2018-11-02 15:38:04.420  INFO 10532 --- [main] s.d.spring.web.OperationsKeyGenerator    : Cache key generated: /test/search.com.dida.facialtissue.controller.TestController.search.DefaultGenericTypeNamingStrategy
+2018-11-02 15:38:04.421  INFO 10532 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache operations with key /test/search.com.dida.facialtissue.controller.TestController.search.DefaultGenericTypeNamingStrategy
+2018-11-02 15:38:04.427  INFO 10532 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method search was test-controller
+2018-11-02 15:38:04.429  INFO 10532 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method search was test-controller
+2018-11-02 15:38:04.448  INFO 10532 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: java.lang.Void(true)
+2018-11-02 15:38:04.448  INFO 10532 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache models with key java.lang.Void(true)
+2018-11-02 15:38:04.448  INFO 10532 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: java.lang.Void(true)
+2018-11-02 15:38:04.448  INFO 10532 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelDependencies with key java.lang.Void(true)
+2018-11-02 15:38:04.450  INFO 10532 --- [main] s.d.spring.web.OperationsKeyGenerator    : Cache key generated: /callBack.com.dida.facialtissue.controller.WeChatController.callBack.DefaultGenericTypeNamingStrategy
+2018-11-02 15:38:04.450  INFO 10532 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache operations with key /callBack.com.dida.facialtissue.controller.WeChatController.callBack.DefaultGenericTypeNamingStrategy
+2018-11-02 15:38:04.453  INFO 10532 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method callBack was we-chat-controller
+2018-11-02 15:38:04.454  INFO 10532 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method callBack was we-chat-controller
+2018-11-02 15:38:04.458  INFO 10532 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: java.lang.Void(true)
+2018-11-02 15:38:04.458  INFO 10532 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache models with key java.lang.Void(true)
+2018-11-02 15:38:04.458  INFO 10532 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: java.lang.Void(true)
+2018-11-02 15:38:04.458  INFO 10532 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelDependencies with key java.lang.Void(true)
+2018-11-02 15:38:04.458  INFO 10532 --- [main] s.d.spring.web.OperationsKeyGenerator    : Cache key generated: /wechat.com.dida.facialtissue.controller.WeChatController.validate.DefaultGenericTypeNamingStrategy
+2018-11-02 15:38:04.458  INFO 10532 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache operations with key /wechat.com.dida.facialtissue.controller.WeChatController.validate.DefaultGenericTypeNamingStrategy
+2018-11-02 15:38:04.460  INFO 10532 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method validate was we-chat-controller
+2018-11-02 15:38:04.461  INFO 10532 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method validate was we-chat-controller
+2018-11-02 15:38:04.464  INFO 10532 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: java.lang.String(true)
+2018-11-02 15:38:04.464  INFO 10532 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache models with key java.lang.String(true)
+2018-11-02 15:38:04.464  INFO 10532 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: java.lang.String(true)
+2018-11-02 15:38:04.464  INFO 10532 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelDependencies with key java.lang.String(true)
+2018-11-02 15:38:04.464  INFO 10532 --- [main] s.d.spring.web.OperationsKeyGenerator    : Cache key generated: /wechat.com.dida.facialtissue.controller.WeChatController.validate.DefaultGenericTypeNamingStrategy
+2018-11-02 15:38:04.464  INFO 10532 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache operations with key /wechat.com.dida.facialtissue.controller.WeChatController.validate.DefaultGenericTypeNamingStrategy
+2018-11-02 15:38:04.466  INFO 10532 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: java.lang.Void(true)
+2018-11-02 15:38:04.466  INFO 10532 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache models with key java.lang.Void(true)
+2018-11-02 15:38:04.467  INFO 10532 --- [main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: java.lang.Void(true)
+2018-11-02 15:38:04.467  INFO 10532 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelDependencies with key java.lang.Void(true)
+2018-11-02 15:38:04.467  INFO 10532 --- [main] s.d.spring.web.OperationsKeyGenerator    : Cache key generated: /wxLogin.com.dida.facialtissue.controller.WeChatController.wxLogin.DefaultGenericTypeNamingStrategy
+2018-11-02 15:38:04.467  INFO 10532 --- [main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache operations with key /wxLogin.com.dida.facialtissue.controller.WeChatController.wxLogin.DefaultGenericTypeNamingStrategy
+2018-11-02 15:38:04.468  INFO 10532 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method wxLogin was we-chat-controller
+2018-11-02 15:38:04.470  INFO 10532 --- [main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method wxLogin was we-chat-controller
+2018-11-02 15:38:04.561  INFO 10532 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 9005 (http)
+2018-11-02 15:38:04.569  INFO 10532 --- [main] com.dida.facialtissue.Application        : Started Application in 8.094 seconds (JVM running for 8.757)
