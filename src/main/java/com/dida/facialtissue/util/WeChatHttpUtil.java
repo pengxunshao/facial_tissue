@@ -14,10 +14,7 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.servlet.http.HttpServletRequest;
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.ConnectException;
 import java.net.URL;
 import java.security.MessageDigest;
@@ -30,7 +27,7 @@ import java.util.*;
  * @author 32950745
  *
  */
-public class WeChatUtil {
+public class WeChatHttpUtil {
 
     /**
      * 验证签名
@@ -123,65 +120,153 @@ public class WeChatUtil {
      *
      * @param requestUrl 请求地址
      * @param requestMethod 请求方式（GET、POST）
-     * @param outputStr 提交的数据
+     * @param params 提交的数据
      * @return JSONObject(通过JSONObject.get(key)的方式获取json对象的属性值)
      */
-    public static JSONObject httpRequest(String requestUrl, String requestMethod, String outputStr) {
+    public static JSONObject httpRequest(String requestUrl, String requestMethod, String params) {
         JSONObject jsonObject = null;
         StringBuffer buffer = new StringBuffer();
+
         try {
-            // 创建SSLContext对象，并使用我们指定的信任管理器初始化
+            /** 创建SSLContext对象,并用我们制定的管理对象初始化 */
             TrustManager[] tm = { new MyX509TrustManager() };
             SSLContext sslContext = SSLContext.getInstance("SSL", "SunJSSE");
             sslContext.init(null, tm, new java.security.SecureRandom());
-            // 从上述SSLContext对象中得到SSLSocketFactory对象
+            /** 从上述的SSLContext对象中获得 SSLSocketFactory */
             SSLSocketFactory ssf = sslContext.getSocketFactory();
 
             URL url = new URL(requestUrl);
-            HttpsURLConnection httpUrlConn = (HttpsURLConnection) url.openConnection();
-            httpUrlConn.setSSLSocketFactory(ssf);
+            HttpsURLConnection httpsUrlConn = (HttpsURLConnection) url
+                    .openConnection();
+            httpsUrlConn.setSSLSocketFactory(ssf);
 
-            httpUrlConn.setDoOutput(true);
-            httpUrlConn.setDoInput(true);
-            httpUrlConn.setUseCaches(false);
-            // 设置请求方式（GET/POST）
-            httpUrlConn.setRequestMethod(requestMethod);
-
-            if ("GET".equalsIgnoreCase(requestMethod))
-                httpUrlConn.connect();
-
-            // 当有数据需要提交时
-            if (null != outputStr) {
-                OutputStream outputStream = httpUrlConn.getOutputStream();
-                // 注意编码格式，防止中文乱码
-                outputStream.write(outputStr.getBytes("UTF-8"));
-                outputStream.close();
+            httpsUrlConn.setDoInput(true);
+            httpsUrlConn.setDoOutput(true);
+            httpsUrlConn.setUseCaches(false);
+            httpsUrlConn.setRequestMethod(requestMethod);
+            if ("GET".equalsIgnoreCase(requestMethod)) {
+                httpsUrlConn.connect();
+            }
+            /** 当有数据提交时 */
+            if (null != params) {
+                OutputStream output = httpsUrlConn.getOutputStream();
+                /** 设置编码格式，防止中文乱码 */
+                output.write(params.getBytes("UTF-8"));
+                output.close();
             }
 
-            // 将返回的输入流转换成字符串
-            InputStream inputStream = httpUrlConn.getInputStream();
-            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "utf-8");
-            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+            String contentType = httpsUrlConn.getHeaderField("Content-Type");
+            if(contentType.indexOf("image") != -1){// 返回值类型是图片
+                String oldFileName = httpsUrlConn.getHeaderField("Content-disposition");
+                String[] oldFileNameSplits = oldFileName.split("\\.");
+                String fileType = oldFileNameSplits[oldFileNameSplits.length - 1];
+                oldFileNameSplits = fileType.split("\\\"");
+                fileType = oldFileNameSplits[0];
+                String folderPath = getProjectPath()+"/resource/weixinimg";
+                String fileName = "WX_" + getUUID() + "." + fileType;
 
-            String str = null;
-            while ((str = bufferedReader.readLine()) != null) {
-                buffer.append(str);
+                File folder = new File(folderPath);
+                // 判断文件目录是否存在,创建文件夹和文件
+                if (!folder.exists()) {
+                    folder.mkdirs();
+                }
+                File file = new File(folderPath + "/" + fileName);
+                BufferedInputStream bis = new BufferedInputStream(httpsUrlConn.getInputStream());
+                FileOutputStream fos = new FileOutputStream(file);
+                byte[] bufferArray = new byte[1024];
+                int len;
+                while ((len = bis.read(bufferArray)) != -1) {
+                    fos.write(bufferArray, 0, len);
+                }
+                fos.close();
+                bis.close();
+
+                httpsUrlConn.disconnect();
+
+                jsonObject = new JSONObject();
+                jsonObject.put("JSON_PARAM_NAME_IMAGE_PATH", "/resource/weixinimg/" + fileName);
+            }else{// 返回值类型是文本
+                /** 将返回的输入流转换成字符 */
+                InputStream inputStream = httpsUrlConn.getInputStream();
+                InputStreamReader isr = new InputStreamReader(inputStream, "UTF-8");
+                BufferedReader bufferedReader = new BufferedReader(isr);
+
+                String str = null;
+                while ((str = bufferedReader.readLine()) != null) {
+                    buffer.append(str);
+                }
+                bufferedReader.close();
+                isr.close();
+                inputStream.close();
+
+                inputStream = null;
+                httpsUrlConn.disconnect();
+                jsonObject = JSONObject.parseObject(buffer.toString());
             }
-            bufferedReader.close();
-            inputStreamReader.close();
-            // 释放资源
-            inputStream.close();
-            inputStream = null;
-            httpUrlConn.disconnect();
-            jsonObject = JSONObject.parseObject(buffer.toString());
         } catch (ConnectException ce) {
-            //log.error("Weixin server connection timed out.");
+            System.out.println("wechat connect is error."+ce);
         } catch (Exception e) {
-            //log.error("https request error:{}", e);
+            System.out.println("https request error." +e);
         }
         return jsonObject;
     }
 
+    /**
+     *
+     * @description:
+     * @return
+     * @author:
+     * @createTime:2018年6月1日 上午11:47:02
+     */
+    public static String getUUID(){
+        String uuid = UUID.randomUUID().toString();
+        uuid = uuid.replaceAll("-", "");
+        return uuid;
+    }
+
+    /**
+     *
+     * @description:
+     * @return
+     * @author:王涛
+     * @createTime:2018年6月1日 上午11:45:58
+     */
+    public final static String getProjectPath() {
+        String ProjectPath= WeChatHttpUtil.class.getClassLoader().getResource("").toString();
+        ProjectPath = replaceSlash(ProjectPath);
+        int i=0;
+        while (ProjectPath.indexOf("//")!=-1 && i<20){
+            ProjectPath = ProjectPath.replaceAll("\\Q//\\E", "/");
+            i++;
+        }
+        ProjectPath = ProjectPath.replaceAll("\\Qfile:\\E", "");
+        if(ProjectPath.indexOf(":")!=-1)
+            ProjectPath = ProjectPath.substring(1);
+        if(ProjectPath.indexOf("WEB-INF")!=-1)
+            ProjectPath = ProjectPath.substring(0,ProjectPath.indexOf("WEB-INF")-1);
+        return ProjectPath;
+    }
+    /**
+     *
+     * @description:
+     * @param str
+     * @return
+     * @author:王涛
+     * @createTime:2018年6月1日 上午11:46:14
+     */
+    public static String replaceSlash(String str){
+        String temp="";
+        int n=0;
+        for(int i = 0; i < str.length(); i ++){
+            if(str.charAt(i) == '\\'){
+                temp = temp + str.substring(n,i)+"/";
+                n = i+1;
+            }
+        }
+        if(n<str.length())
+            temp = temp + str.substring(n);
+        return temp;
+    }
     /**
      * 解析微信发来的请求(xml)
      * @param request

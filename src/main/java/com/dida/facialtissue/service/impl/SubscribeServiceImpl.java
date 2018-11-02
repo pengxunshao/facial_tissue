@@ -4,14 +4,13 @@ package com.dida.facialtissue.service.impl;/**
  * @createTime:2018/11/1 11:56
  **/
 
-import com.alibaba.fastjson.JSONObject;
 import com.dida.facialtissue.WeChatEntity.AccessToken;
+import com.dida.facialtissue.WeChatEntity.WeChatUserInfo;
 import com.dida.facialtissue.commons.RedisTemplateHelper;
-import com.dida.facialtissue.WeChatEntity.WeChatContant;
-import com.dida.facialtissue.enums.RequestMethodEnum;
 import com.dida.facialtissue.service.ISubscribeService;
+import com.dida.facialtissue.service.IWeChatService;
 import com.dida.facialtissue.util.MessageUtil;
-import com.dida.facialtissue.util.WeChatUtil;
+import com.dida.facialtissue.util.WeChatHttpUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,7 +27,8 @@ import java.util.Map;
 public class SubscribeServiceImpl implements ISubscribeService {
     @Autowired
     RedisTemplateHelper redisTemplateHelper;
-
+    @Autowired
+    IWeChatService iWeChatService;
     //关注,订阅
     @Override
     public String Subscribe(HttpServletRequest request, HttpServletResponse response) {
@@ -43,7 +43,7 @@ public class SubscribeServiceImpl implements ISubscribeService {
             System.out.println(fromUserName);
             String token = redisTemplateHelper.getValue("accessToken");
             if (null == token) {
-                AccessToken accessToken = WeChatUtil.getAccessToken();
+                AccessToken accessToken = WeChatHttpUtil.getAccessToken();
                 token = accessToken.getToken();
                 redisTemplateHelper.setValue("accessToken", accessToken.getToken(), accessToken.getExpiresIn());
             }
@@ -54,10 +54,8 @@ public class SubscribeServiceImpl implements ISubscribeService {
                 System.out.println("Event:" + Event);
                 //如果是关注,订阅
                 if (MessageUtil.EVENT_TYPE_SUBSCRIBE.equals(Event)) {
-                    String userinfoByopenID_url = WeChatContant.userinfoByopenID_url;
-                    String url = userinfoByopenID_url.replace("ACCESS_TOKEN", token).replace("OPENID", fromUserName);
-                    JSONObject jsonObject = WeChatUtil.httpRequest(url, RequestMethodEnum.GET.getName(), null);
-                    System.out.println(jsonObject);
+                    WeChatUserInfo weChatUserInfo = iWeChatService.getUserInfoService(token, fromUserName);
+                    System.out.println(weChatUserInfo.toString());
                 }
             }
         } catch (Exception e) {

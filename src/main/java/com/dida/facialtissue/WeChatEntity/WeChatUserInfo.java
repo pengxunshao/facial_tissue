@@ -107,4 +107,20 @@ public class WeChatUserInfo {
     public void setHeadImgUrl(String headImgUrl) {
         this.headImgUrl = headImgUrl;
     }
+
+    @Override
+    public String toString() {
+        return "WeChatUserInfo{" +
+                "openId='" + openId + '\'' +
+                ", subscribe=" + subscribe +
+                ", subscribeTime='" + subscribeTime + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", sex=" + sex +
+                ", country='" + country + '\'' +
+                ", province='" + province + '\'' +
+                ", city='" + city + '\'' +
+                ", language='" + language + '\'' +
+                ", headImgUrl='" + headImgUrl + '\'' +
+                '}';
+    }
 }

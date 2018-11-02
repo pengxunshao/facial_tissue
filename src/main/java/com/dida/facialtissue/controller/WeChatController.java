@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.dida.facialtissue.WeChatEntity.WeChatContant;
 import com.dida.facialtissue.enums.RequestMethodEnum;
 import com.dida.facialtissue.service.ISubscribeService;
-import com.dida.facialtissue.util.WeChatUtil;
+import com.dida.facialtissue.util.WeChatHttpUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,7 +33,7 @@ public class WeChatController {
                            @RequestParam(value = "timestamp") String timestamp,
                            @RequestParam(value = "nonce") String nonce,
                            @RequestParam(value = "echostr") String echostr) {
-        boolean checkResult = WeChatUtil.checkSignature(signature, timestamp, nonce);
+        boolean checkResult = WeChatHttpUtil.checkSignature(signature, timestamp, nonce);
         if (checkResult) {
             System.out.println("微信服务验证成功！");
             return echostr;
@@ -70,7 +70,7 @@ public class WeChatController {
                 "&secret=SECRET" + WeChatContant.appsecret +
                 "&code=" + code +
                 "&grant_type=authorization_code";
-        JSONObject jsonObject = WeChatUtil.httpRequest(url, RequestMethodEnum.GET.getName(), null);
+        JSONObject jsonObject = WeChatHttpUtil.httpRequest(url, RequestMethodEnum.GET.getName(), null);
         System.out.println(jsonObject);
         /* 正确时返回的JSON数据包如下：
        {
@@ -95,7 +95,7 @@ public class WeChatController {
                 "access_token=" + token +
                 "&openid=" + openid +
                 "&lang=zh_CN";
-        JSONObject userinfo = WeChatUtil.httpRequest(userinfo_url, RequestMethodEnum.GET.getName(), null);
+        JSONObject userinfo = WeChatHttpUtil.httpRequest(userinfo_url, RequestMethodEnum.GET.getName(), null);
         System.out.println(userinfo);
         /*
         正确时返回的JSON数据包如下：
