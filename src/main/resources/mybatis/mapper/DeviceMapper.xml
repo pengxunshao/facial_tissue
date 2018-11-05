@@ -8,6 +8,10 @@
     <result column="title" jdbcType="VARCHAR" property="title" />
     <result column="device_id" jdbcType="VARCHAR" property="deviceId" />
     <result column="apikey" jdbcType="VARCHAR" property="apikey" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="paper_num" jdbcType="INTEGER" property="paperNum" />
+    <result column="Creat_time" jdbcType="TIMESTAMP" property="creatTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -68,7 +72,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, sn, mac, title, device_id, apikey
+    id, sn, mac, title, device_id, apikey, status, paper_num, Creat_time, update_time
   </sql>
   <select id="selectByExample" parameterType="com.dida.facialtissue.entity.DeviceExample" resultMap="BaseResultMap">
     select
@@ -105,9 +109,13 @@
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into device (sn, mac, title, 
-      device_id, apikey)
+      device_id, apikey, status, 
+      paper_num, Creat_time, update_time
+      )
     values (#{sn,jdbcType=VARCHAR}, #{mac,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
-      #{deviceId,jdbcType=VARCHAR}, #{apikey,jdbcType=VARCHAR})
+      #{deviceId,jdbcType=VARCHAR}, #{apikey,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{paperNum,jdbcType=INTEGER}, #{creatTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.dida.facialtissue.entity.Device">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
@@ -130,6 +138,18 @@
       <if test="apikey != null">
         apikey,
       </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="paperNum != null">
+        paper_num,
+      </if>
+      <if test="creatTime != null">
+        Creat_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="sn != null">
@@ -146,6 +166,18 @@
       </if>
       <if test="apikey != null">
         #{apikey,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="paperNum != null">
+        #{paperNum,jdbcType=INTEGER},
+      </if>
+      <if test="creatTime != null">
+        #{creatTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -176,6 +208,18 @@
       <if test="record.apikey != null">
         apikey = #{record.apikey,jdbcType=VARCHAR},
       </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.paperNum != null">
+        paper_num = #{record.paperNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.creatTime != null">
+        Creat_time = #{record.creatTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null">
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -188,7 +232,11 @@
       mac = #{record.mac,jdbcType=VARCHAR},
       title = #{record.title,jdbcType=VARCHAR},
       device_id = #{record.deviceId,jdbcType=VARCHAR},
-      apikey = #{record.apikey,jdbcType=VARCHAR}
+      apikey = #{record.apikey,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=INTEGER},
+      paper_num = #{record.paperNum,jdbcType=INTEGER},
+      Creat_time = #{record.creatTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -211,6 +259,18 @@
       <if test="apikey != null">
         apikey = #{apikey,jdbcType=VARCHAR},
       </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="paperNum != null">
+        paper_num = #{paperNum,jdbcType=INTEGER},
+      </if>
+      <if test="creatTime != null">
+        Creat_time = #{creatTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -220,7 +280,11 @@
       mac = #{mac,jdbcType=VARCHAR},
       title = #{title,jdbcType=VARCHAR},
       device_id = #{deviceId,jdbcType=VARCHAR},
-      apikey = #{apikey,jdbcType=VARCHAR}
+      apikey = #{apikey,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      paper_num = #{paperNum,jdbcType=INTEGER},
+      Creat_time = #{creatTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

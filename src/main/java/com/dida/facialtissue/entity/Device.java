@@ -1,5 +1,7 @@
 package com.dida.facialtissue.entity;
 
+import java.util.Date;
+
 public class Device {
     private Integer id;
 
@@ -12,6 +14,14 @@ public class Device {
     private String deviceId;
 
     private String apikey;
+
+    private Integer status;
+
+    private Integer paperNum;
+
+    private Date creatTime;
+
+    private Date updateTime;
 
     public Integer getId() {
         return id;
@@ -59,5 +69,37 @@ public class Device {
 
     public void setApikey(String apikey) {
         this.apikey = apikey == null ? null : apikey.trim();
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public Integer getPaperNum() {
+        return paperNum;
+    }
+
+    public void setPaperNum(Integer paperNum) {
+        this.paperNum = paperNum;
+    }
+
+    public Date getCreatTime() {
+        return creatTime;
+    }
+
+    public void setCreatTime(Date creatTime) {
+        this.creatTime = creatTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 }
