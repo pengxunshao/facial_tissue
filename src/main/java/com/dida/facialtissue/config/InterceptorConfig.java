@@ -10,7 +10,7 @@ public class InterceptorConfig extends WebMvcConfigurerAdapter {
  
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new LogCostInterceptor()).addPathPatterns("/**");
+        registry.addInterceptor(new LogCostInterceptor()).addPathPatterns("/wechat/");
         super.addInterceptors(registry);
     }
 }
