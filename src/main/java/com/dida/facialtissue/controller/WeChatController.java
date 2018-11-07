@@ -10,16 +10,14 @@ import com.dida.facialtissue.service.IWeChatService;
 import com.dida.facialtissue.util.WeChatHttpUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @RestController
+@RequestMapping("/wechat")
 public class WeChatController {
     @Value("${server.port}")
     private String port;
@@ -41,7 +39,7 @@ public class WeChatController {
      * nonce     微信端发来的随机字符串
      * echostr   微信端发来的验证字符串
      */
-    @GetMapping(value = "/wechat")
+    @GetMapping(value = "/")
     public String validate(@RequestParam(value = "signature") String signature,
                            @RequestParam(value = "timestamp") String timestamp,
                            @RequestParam(value = "nonce") String nonce,
@@ -54,7 +52,7 @@ public class WeChatController {
         return null;
     }
 
-    @PostMapping(value = "/wechat")
+    @PostMapping(value = "/")
     public void validate(HttpServletRequest request, HttpServletResponse response) throws Exception {
         // 将请求、响应的编码均设置为UTF-8（防止中文乱码）
         request.setCharacterEncoding("UTF-8");
@@ -66,7 +64,7 @@ public class WeChatController {
     public void wxLogin(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         //回调地址，必须要在公网上能进行访问
         // String backUrl = WeChatContant.DIDA_URL+":"+port+"/callBack";
-        String backUrl = WeChatContant.DIDA_URL + "/callBack";
+        String backUrl = WeChatContant.DIDA_URL + "/wechat/callBack";
         String url = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
                 "appid=" + WeChatContant.appID +
                 "&redirect_uri=" + backUrl +
