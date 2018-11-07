@@ -1,6 +1,8 @@
 package com.dida.facialtissue.WeChatEntity;
 
 public class WeChatContant {
+    //公司服务器地址
+    public static final String DIDA_URL = "www.kunshandida.com";
      //APPID
     public static final String appID = "wx1cf3b2c518a43718";
     //appsecret

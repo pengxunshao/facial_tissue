@@ -3,6 +3,7 @@ package com.dida.facialtissue.controller;
 import com.dida.facialtissue.commons.RedisTemplateHelper;
 import com.dida.facialtissue.service.IWeChatService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +14,9 @@ import java.util.Map;
 
 @Controller
 public class TestController {
+    @Value("${server.port}")
+    private String port;
+
     @Autowired
     IWeChatService iWeChatService;
     @Autowired
@@ -25,6 +29,7 @@ public class TestController {
     @GetMapping("/test/hello")
     @ResponseBody
     public String hello(){
+        System.out.println(port);
         return "Hello World";
     }
 

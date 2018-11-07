@@ -8,6 +8,7 @@ import com.dida.facialtissue.service.ISubscribeService;
 import com.dida.facialtissue.service.IWeChatService;
 import com.dida.facialtissue.util.WeChatHttpUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,6 +20,9 @@ import java.io.IOException;
 
 @RestController
 public class WeChatController {
+    @Value("${server.port}")
+    private String port;
+
     @Autowired
     ISubscribeService subscribeService;
 
@@ -57,7 +61,7 @@ public class WeChatController {
     @GetMapping(value = "/wxLogin")
     public void wxLogin(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         //回调地址，必须要在公网上能进行访问
-        String backUrl = "http://aamqei.natappfree.cc/callBack";
+        String backUrl = WeChatContant.DIDA_URL+":"+port+"/callBack";
         String url = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
                 "appid=" + WeChatContant.appID +
                 "&redirect_uri=" + backUrl +
