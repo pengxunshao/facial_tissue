@@ -2,8 +2,10 @@ package com.dida.facialtissue.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.dida.facialtissue.WeChatEntity.WeChatContant;
+import com.dida.facialtissue.WeChatEntity.WeChatUserInfo;
 import com.dida.facialtissue.enums.RequestMethodEnum;
 import com.dida.facialtissue.service.ISubscribeService;
+import com.dida.facialtissue.service.IWeChatService;
 import com.dida.facialtissue.util.WeChatHttpUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +21,9 @@ import java.io.IOException;
 public class WeChatController {
     @Autowired
     ISubscribeService subscribeService;
+
+    @Autowired
+    IWeChatService iWeChatService;
 
     /**
      * 处理微信服务器发来的get请求，进行签名的验证
@@ -75,11 +80,6 @@ public class WeChatController {
         String openid = jsonObject.getString("openid");
         String token = jsonObject.getString("access_token");
         //拉取用户信息
-        String userinfo_url = "https://api.weixin.qq.com/sns/userinfo?" +
-                "access_token=" + token +
-                "&openid=" + openid +
-                "&lang=zh_CN";
-        JSONObject userinfo = WeChatHttpUtil.httpRequest(userinfo_url, RequestMethodEnum.GET.getName(), null);
-        System.out.println(userinfo);
+        WeChatUserInfo userInfo = iWeChatService.getUserInfoService(token, openid);
     }
 }
