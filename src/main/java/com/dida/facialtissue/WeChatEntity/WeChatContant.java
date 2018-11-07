@@ -2,14 +2,14 @@ package com.dida.facialtissue.WeChatEntity;
 
 public class WeChatContant {
     //公司服务器地址
-    //public static final String DIDA_URL = "www.kunshandida.com";
-    public static final String DIDA_URL = "http://5w6hrc.natappfree.cc";
+    public static final String DIDA_URL = "www.kunshandida.com";
+    //public static final String DIDA_URL = "http://5w6hrc.natappfree.cc";
      //APPID
-    //public static final String appID = "wx1cf3b2c518a43718";
-    public static final String appID = "wxf38d0e2843aafe62";
+    public static final String appID = "wx1cf3b2c518a43718";
+    //public static final String appID = "wxf38d0e2843aafe62";
     //appsecret
-   // public static final String appsecret = "7d223e8ea5c3b8dae1c799ed7eab2df8";
-    public static final String appsecret = "9e76b62b3bdf89f8ac03988a43ede32e";
+    public static final String appsecret = "7d223e8ea5c3b8dae1c799ed7eab2df8";
+    //public static final String appsecret = "9e76b62b3bdf89f8ac03988a43ede32e";
     // Token
     public static final String TOKEN = "dida";
     public static final String RESP_MESSAGE_TYPE_TEXT = "text";
