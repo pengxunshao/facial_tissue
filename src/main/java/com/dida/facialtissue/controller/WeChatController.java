@@ -3,6 +3,7 @@ package com.dida.facialtissue.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.dida.facialtissue.WeChatEntity.WeChatContant;
 import com.dida.facialtissue.WeChatEntity.WeChatUserInfo;
+import com.dida.facialtissue.commons.RedisTemplateHelper;
 import com.dida.facialtissue.enums.RequestMethodEnum;
 import com.dida.facialtissue.service.ISubscribeService;
 import com.dida.facialtissue.service.IWeChatService;
@@ -28,6 +29,9 @@ public class WeChatController {
 
     @Autowired
     IWeChatService iWeChatService;
+
+    @Autowired
+    RedisTemplateHelper redisTemplateHelper;
 
     /**
      * 处理微信服务器发来的get请求，进行签名的验证
@@ -61,7 +65,8 @@ public class WeChatController {
     @GetMapping(value = "/wxLogin")
     public void wxLogin(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         //回调地址，必须要在公网上能进行访问
-        String backUrl = WeChatContant.DIDA_URL+":"+port+"/callBack";
+        // String backUrl = WeChatContant.DIDA_URL+":"+port+"/callBack";
+        String backUrl = WeChatContant.DIDA_URL + "/callBack";
         String url = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
                 "appid=" + WeChatContant.appID +
                 "&redirect_uri=" + backUrl +
@@ -76,7 +81,7 @@ public class WeChatController {
         //String code = req.getParameter("code");
         String url = "https://api.weixin.qq.com/sns/oauth2/access_token?" +
                 "appid=" + WeChatContant.appID +
-                "&secret=SECRET" + WeChatContant.appsecret +
+                "&secret=" + WeChatContant.appsecret +
                 "&code=" + code +
                 "&grant_type=authorization_code";
         JSONObject jsonObject = WeChatHttpUtil.httpRequest(url, RequestMethodEnum.GET.getName(), null);
@@ -84,6 +89,27 @@ public class WeChatController {
         String openid = jsonObject.getString("openid");
         String token = jsonObject.getString("access_token");
         //拉取用户信息
-        WeChatUserInfo userInfo = iWeChatService.getUserInfoService(token, openid);
+        String userInfo_url = "https://api.weixin.qq.com/sns/userinfo?access_token=" + token + "&openid=" + openid + "&lang=zh_CN";
+        JSONObject jsonObject1 = WeChatHttpUtil.httpRequest(userInfo_url, RequestMethodEnum.GET.getName(), null);
+        WeChatUserInfo weixinUserInfo = null;
+        if (null != jsonObject1) {
+            weixinUserInfo = new WeChatUserInfo();
+            // 用户的标识
+            weixinUserInfo.setOpenId(jsonObject1.getString("openid"));
+            // 昵称
+            weixinUserInfo.setNickname(jsonObject1.getString("nickname"));
+            // 用户的性别（1是男性，2是女性，0是未知）
+            weixinUserInfo.setSex(jsonObject1.getInteger("sex"));
+            // 用户所在省份
+            weixinUserInfo.setProvince(jsonObject1.getString("province"));
+            // 用户所在城市
+            weixinUserInfo.setCity(jsonObject1.getString("city"));
+            // 用户所在国家
+            weixinUserInfo.setCountry(jsonObject1.getString("country"));
+            // 用户头像
+            weixinUserInfo.setHeadImgUrl(jsonObject1.getString("headimgurl"));
+        }
+
+        System.out.println(weixinUserInfo);
     }
 }

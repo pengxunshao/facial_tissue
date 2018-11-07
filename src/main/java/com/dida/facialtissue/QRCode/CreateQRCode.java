@@ -21,7 +21,7 @@ public class CreateQRCode {
         int width = 300;//定义图片宽度
         int height = 300;//定义图片高度
         String format = "png";//定义图片格式
-        String content = "http://aamqei.natappfree.cc/wxLogin";//定义二维码内容
+        String content = "http://5w6hrc.natappfree.cc/wxLogin";//定义二维码内容
 
         //定义二维码参数
         HashMap hints = new HashMap();
@@ -34,7 +34,7 @@ public class CreateQRCode {
         try {
             BitMatrix bitMatrix = new MultiFormatWriter().encode(content, BarcodeFormat.QR_CODE, width, height,hints);
             //设置路径
-            Path file = new File("F:/baidu_QRCode.png").toPath();
+            Path file = new File("D:/baidu_QRCode.png").toPath();
             //输出图像
             MatrixToImageWriter.writeToPath(bitMatrix, format, file);
         } catch (Exception e) {
