@@ -44,11 +44,11 @@ public class WeChatController {
                            @RequestParam(value = "timestamp") String timestamp,
                            @RequestParam(value = "nonce") String nonce,
                            @RequestParam(value = "echostr") String echostr) {
-       /* boolean checkResult = WeChatHttpUtil.checkSignature(signature, timestamp, nonce);
+        boolean checkResult = WeChatHttpUtil.checkSignature(signature, timestamp, nonce);
         if (checkResult) {
             System.out.println("微信服务验证成功！");
             return echostr;
-        }*/
+        }
         return null;
     }
 
